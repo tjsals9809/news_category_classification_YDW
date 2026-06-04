@@ -1,8 +1,8 @@
 # 파일명은 naver_news_section.csv로 해주세요.
 # 컬럼명은 titles, category로 해주세요.
-# 00님이 정치, 경제
-# 01님이 사회, 문화
-# 02님이 세계, IT
+# 유동원님이 정치, 경제
+# 김수연님이 사회, 문화
+# 이석현님이 세계, IT
 # 다 되면 PR부탁합니다
 
 
@@ -22,25 +22,15 @@ service = ChromeService(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
 
 url = 'https://news.naver.com/section/100'
+# 카테고리 마다 URL 설정
 driver.get(url)
 button_xpath = '//*[@id="newsct"]/div[4]/div/div[2]/a'
-for i in range(5):
+for i in range(30):
     driver.find_element(By.XPATH, button_xpath).click()
     time.sleep(0.5)
 
 
-# //*[@id="newsct"]/div[4]/div/div[1]/div[28]/ul/li[1]/div/div/div[2]/a/strong
-#
-# //*[@id="newsct"]/div[4]/div/div[1]/div[16]/ul/li[1]/div/div/div[2]/a/strong
-#
-#
-# //*[@id="newsct"]/div[4]/div/div[1]/div[31]/ul/li[6]/div/div/div[2]/a/strong
-#
-# //*[@id="newsct"]/div[4]/div/div[1]/div[35]/ul/li[2]/div/div/div[2]/a/strong
-
-
-
-for i in range(1,6):
+for i in range(1,361):
     for j in range(1,7):
         try:
             title_xpath = '//*[@id="newsct"]/div[4]/div/div[1]/div[{}]/ul/li[{}]/div/div/div[2]/a/strong'.format(i,j)
